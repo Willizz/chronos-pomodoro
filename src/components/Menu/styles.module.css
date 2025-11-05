@@ -19,10 +19,16 @@
 }
 
 .menuLink:hover {
-  background: var(--primary-dark);
+  filter: brightness(70%);
 }
 
 .menuLink svg {
   width: 2.5rem;
   height: 2.5rem;
+}
+
+.menuLink > div {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }

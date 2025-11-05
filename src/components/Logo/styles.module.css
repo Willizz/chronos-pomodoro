@@ -20,7 +20,7 @@
 }
 
 .logoLink:hover {
-  color: var(--primary-dark);
+  filter: brightness(70%);
 }
 
 .logoLink svg {
