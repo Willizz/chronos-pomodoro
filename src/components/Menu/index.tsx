@@ -12,7 +12,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 type AvailableThemes = 'light' | 'dark';
 
 export function Menu() {
-  const [theme, setTheme] = useState<AvailableThemes>('light');
+  const [theme, setTheme] = useState<AvailableThemes>(() => {
+    const storageTheme =
+      (localStorage.getItem('theme') as AvailableThemes) || 'dark';
+    return storageTheme;
+  });
 
   function handleThemeChange(
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
@@ -23,6 +27,7 @@ export function Menu() {
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
   return (
